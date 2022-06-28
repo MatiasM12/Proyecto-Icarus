@@ -1,0 +1,1072 @@
+:root{
+    --colorfondoestructura:rgba(37, 198, 247, 0.418);
+    --colorVentanaModal: #70caee;
+    --colorMain: #01061d;
+    --colorfont: black;
+    --tamanolista: 3rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    color: var(--colorfont);
+    font-family: 'Ubuntu', sans-serif;
+
+    background-image: url("../frontRecursos/fondo.jpg");
+
+}
+
+
+.logo{
+    width: 5%;
+    height: 50%;
+}
+
+main{
+    display: flex;
+    justify-content: start;
+    height: 100vh;
+    width: 100%;
+
+}
+
+nav{
+    position: absolute;
+    left: 0;
+    top: 16vh;
+    bottom: 0;
+    width: 14vw;
+    background-color: var(--colorMain);
+    opacity: 60%;
+    color: white;
+}
+.vuelos{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 84vw;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 16vh
+
+}
+
+.check-boxes{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.filtroVuelos{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: black;
+    opacity: 0.7;
+    width: 99%;
+
+}
+
+.filtritos{
+
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.margen-filtro{
+    margin-right: 0.7rem;
+    width: 13%;
+    height: 50%;
+    font-size: 1rem;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    
+}
+
+
+.filtrar{
+
+    background-color: white;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5%;
+    cursor: pointer;
+    
+}
+
+.filtrar:hover{
+    background-color: rgba(37, 198, 247, 0.418);;
+    color: white;
+    transition-duration: 250ms;
+    
+}
+
+.listaVuelos{
+
+    height: var(--tamanolista);
+    width: 99%;
+    background-color: var(--colorMain);
+    opacity: 60%;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.vuelos-enlistados{
+    width: 99%;
+    height: var(--tamanolista);
+    background-color: white;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+
+}
+
+.listas{
+    display: grid;
+    grid-template-columns: 1fr 0.7fr 0.7fr 1fr 1fr 1fr 0.5fr 0.3fr 0.6fr 0.2fr;
+}
+
+
+
+/*BTN MODIFICAR PLAN DE VUELO*/
+
+.btn-modificar, .btn-masinfo{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 70%;
+   height: 70%;
+   background-color: rgba(10, 10, 73, 0.452);
+   cursor: pointer;
+   margin: 0 auto;
+}
+
+
+.titulo-vuelo{
+    text-align: center;
+}
+
+
+.cuadricula{
+    color: white;
+    margin: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.semaforo-clima{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    
+    margin: 0 auto;
+}
+
+.lista-vuelo{
+    color: black;
+}
+
+
+.container-rutas{
+
+    display: flex;
+    justify-content: space-around;
+    background-color:crimson;
+    border: 2px solid black;
+    padding: 1rem;
+
+
+}
+
+.container-rutas:hover{
+
+    background-color: blueviolet;
+    transition-duration: 500ms;
+}
+
+
+.vuelos,.tipo-aeronave{
+    margin: 0;
+}
+
+
+
+
+
+
+
+h1{
+    text-align: left;
+}
+
+.credenciales{
+    background-image: url("../frontRecursos/fondo.jpg");
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.SFCredencial{
+    height: 15vh ;
+    width: 100%;
+    background-color:black;
+    opacity: 0.7;
+    position: absolute;
+
+}
+
+.logout-s{
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    z-index: 998;
+    display: none;
+}
+
+.titulo{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+}
+
+.form-identificacion{
+    height: 50%;
+    width: 50%;
+    background-color:var(--colorMain);
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:auto auto;
+}
+
+.init-session{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.iniciarS{
+    margin-bottom: 0.3rem;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    
+}
+
+
+.autentificador{
+    border: 0;
+    width: 150px;
+    height: 30px;
+    margin-top: 18px;
+    font-size: 18px;
+    color: white;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    cursor: pointer;
+}
+
+.campos{
+    width: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-funciones{
+    height: 33.33%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-funciones:hover{
+    transition-duration: 500ms;
+    background-color: var(--colorfondoestructura);
+    font-size: 1.2rem;
+    font-style: oblique;
+}
+
+.icono{
+
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.recuperar-contrasenia{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recuperar{
+    color: white;
+    cursor: pointer;
+}
+
+.o{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-o{
+    color: white;
+}
+
+hr{
+    color: white;
+    width: 45%;
+}
+
+
+.contenedorUC{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+
+/*Ventana modal con la descripcion del vuelo*/
+
+.descripcion-vuelo,.modificar-vuelo{
+
+    display: none;
+    background-color: rgb(199 205 211);
+    position: fixed;
+    left: 5vw;
+    right: 5vw;
+    top: 5vh;
+    bottom: 5vh;
+    z-index: 999;
+
+}
+
+.cantidad-max-tripulantes{
+    height: 5rem;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    background-color: #01061d;
+    color: white;
+}
+
+.cantidad-max{
+   /* margin-top: 0.2rem;*/
+    padding: 0.1rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: #44cf42;
+
+}
+
+
+.col-max-trip{
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: auto;
+    text-align: center;
+
+}
+
+
+
+.columnas {
+    width: 50%;
+}
+
+.header-desc{
+    display: flex;
+    background-color: rgb(10, 10, 10);
+    justify-content: space-around;
+
+}
+
+.des-col2{
+    display: inline-block;
+    margin-left: 0.5rem;
+    width: 80%;
+    font-size: 2rem;
+    color: white;
+}
+
+.est-act{
+    display: inline-block;
+    margin-top: 2.7rem;
+    margin-left: 0.5rem;
+    width: 40%;
+    font-size: 1rem;
+    color: white;
+}
+
+.cerrar{
+    width: 20%;
+    height: 100;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 0.5rem;
+    margin-right: 0.7rem;
+    cursor: pointer;
+    color:white;
+}
+
+
+
+.icono-estado{
+
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    height: 10%;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+
+
+.col-estados{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.col1 {
+
+    background-image: url("../frontRecursos/mapa.jpg");
+}
+
+.titulos{
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+
+.ruta{
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.r-salida{
+    width: 50%;
+
+}
+
+.r-llegada{
+    width: 50%;
+
+}
+
+.fecha-hora{
+    height: 16%;
+    display: flex;
+    flex-direction: row;
+}
+
+.fyh-salida, .datos-aer{
+    width: 50%;
+    
+}
+
+.fyh-llegada, .datos-pat{
+    width: 50%;
+}
+
+.fyh-der{
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
+.fyh-izq{
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
+.band{
+    height: 6%;
+    display: flex;
+    background-color: #32485f;
+    align-items: center;
+    color: white;
+    justify-content: center;
+}
+
+.title-band{
+    margin-left: 1rem;
+}
+
+
+.aeronave{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.aer-izq{
+    margin-left: 1rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+
+.otra-div{
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.emergencias{
+    width: 50%;
+    display: none;
+    justify-content:flex-end;
+    align-items: center;
+
+}
+
+.semaforo{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+}
+
+.semaforo-emergencia{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+
+.tipo-vuelo{
+    width: 50%;
+}
+
+.izq{
+    margin-left: 1rem;
+    font-size: 1.3rem;
+ 
+}
+
+.der{
+    margin-left: 1rem;
+    font-size: 1.3rem;
+}
+.izq-tipo-vuelo{
+
+    margin-left: 1rem ;
+}
+
+.aer-izq{
+    font-size: 1.5rem;
+}
+
+
+.otro-div2{
+    height: 28.1%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tripulacion{
+    margin-left: 0.3rem;
+    width: 70%;
+    overflow-y: scroll;
+    background-color: #768da6;
+}
+
+.tripulantes-plan{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+
+.tabla{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.clima{
+    
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #c7cdd3 0%, rgb(125, 198, 231) 100%);
+}
+
+
+.icon-temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.temperatura{
+    
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+
+/*Sección informes */
+.informes{
+    display: none;
+    height: 84vh;
+    width: 83vw;
+    margin-right: 1vw;
+    background-color: var(--colorMain);
+    opacity: 60%;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
+    color: white;
+}
+
+.col-grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.titulo-informe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.col-grid:hover{
+    border: 2px solid black;
+    background-color: rgba(10, 10, 73, 0.452);
+    color: white;
+    transition-duration: 500ms;
+}
+
+
+
+
+/*                                       Container cambios                                    */
+
+.container-cambios{
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.titulo-modificacion2{
+    display: flex;
+    background-color: rgb(10, 10, 10);
+
+}
+
+.titulo-modificacion{
+    display: flex;
+    font-size: 1.7rem;
+    color: white;
+}
+
+.vuelo-mod{
+    margin-right: 1rem;
+}
+
+
+
+.estado-programado{
+    height: 15%;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #768da6;
+}
+.botonera-mod-tripulacion,.botonera-mod-nave{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #152137;
+
+
+}
+
+
+.traer-tripulacion,.btn-alerta,.btn-cant-rutas,.btn-cant-rutas-excluir,.btn-cambiar-ruta{
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, #01061d 0%, rgb(21 33 56) 100%);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.btn-alerta{
+    margin: 0;
+}
+
+
+.btn-traerAN ,.btn-traerT, .btn-selecT, .btn-selecAN,.btn-traerAN-repro,.btn-selectAN-repro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-selecT{
+    padding: 1rem;
+}
+
+
+
+.asignar-tripulacion{
+    height: 50%;
+    display: none;
+    background-color: #768da6;
+
+}
+
+.asignar-aeronave{
+    height: 35%;
+    display: flex;
+    background-color: #768da6;
+}
+
+.lista-tripulantes,.lista-aeronave{
+
+    width: 75%;
+    border: 1px solid black;
+    overflow-y:scroll;
+
+}
+
+.btns-cambio-estado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c7cdd3;
+
+}
+
+
+
+.cambiar-programado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    color: white;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+.prueba{
+    height: 10rem;
+    border: 2px solid blue;
+    width: 100%;
+}
+
+
+/*Columna detalles modificacion*/
+
+.aeronave-modificacion,.aeropuerto-modificacion{
+    width: 100%;
+    display: flex;
+}
+
+.container-aer-sal{
+    width: 50%;
+}
+
+.container-aer-des{
+    width: 50%;
+}
+
+.tipo-vuelo-modificar{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.aer-titulo,.titulo-aeropuerto{
+    margin-right: 1rem;
+}
+
+.aer-titulo{
+    width: 50%;
+}
+
+.aer-matricula{
+    width: 50%;
+}
+
+.mover-der{
+    margin-left: 1rem;
+}
+
+
+
+
+.tripulacion-seleccionada{
+    width: 95%;
+    height: 30%;
+    overflow-y: auto;
+    background-color: #768da6;
+
+}
+
+
+
+/* MODAL CONFIRMADO */
+
+
+.container-confirmado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+
+}
+
+.info-requerida{
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.estado-permisos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 99%;
+    margin-left: 3px;
+}
+
+
+
+
+.permisos-aeronave , .permisos-tripulacion,.pedir-insumos{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #768da6;
+    height: 7rem;
+}
+
+
+.permisoT, .permisoAN{
+    margin-left: 1rem;
+    width: 60%;
+}
+
+
+.btn-permisosAN, .btn-permisosT,.btn-pedir-insumos{
+
+    height: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, #01061d 0%, rgb(21 33 56) 100%);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 2rem;
+
+}
+
+.estado-confirmado{
+
+    width: 100%;
+    border: 1px solid black;
+    height: 15%;
+}
+
+
+.cambiar-confirmado{
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    color: white;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+
+/* MODAL CANCELADO*/
+
+
+.container-cancelado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+
+}
+
+
+
+
+
+/* TOOLTIP*/
+
+[tooltip] {
+    position: relative; /* opinion 1 */
+  }
+
+  [tooltip]::before,
+  [tooltip]::after {
+    text-transform: none; /* opinion 2 */
+    font-size: .9em; /* opinion 3 */
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    display: none;
+    opacity: 0;
+  }
+  [tooltip]::before {
+    content: '';
+    border: 5px solid transparent; /* opinion 4 */
+    z-index: 1001; /* absurdity 1 */
+  }
+  [tooltip]::after {
+    content: attr(tooltip); /* magic! */
+    
+    /* most of the rest of this is opinion */
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: .3ch;
+    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+    background: #333;
+    color: #fff;
+    z-index: 1000; /* absurdity 2 */
+  }
+
+  
+  [tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+/* FLOW: UP */
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+}
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+  bottom: calc(100% + 5px);
+}
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+  left: 50%;
+  transform: translate(-50%, -.5em);
+}
+    
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+    to {
+      opacity: .9;
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  @keyframes tooltips-horz {
+    to {
+      opacity: .9;
+      transform: translate(0, -50%);
+    }
+  }
+  
+  /* FX All The Things */ 
+  [tooltip]:not([flow]):hover::before,
+  [tooltip]:not([flow]):hover::after,
+  [tooltip][flow^="up"]:hover::before,
+  [tooltip][flow^="up"]:hover::after {
+    animation: tooltips-vert 300ms ease-out forwards;
+  }
+  
+
+.verde {
+      background-color: "green";
+  }
+  
+.rojo {
+    background-color: "red";
+}
+  

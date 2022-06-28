@@ -1,0 +1,157 @@
+.reset-pass {
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+
+
+
+}
+
+
+
+.form-change {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+
+}
+
+
+.pass-change {
+    margin-top: 0;
+    font-size: 2rem;
+    color: white;
+
+}
+
+.a-envio{
+
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: white;
+
+}
+
+.verificar-datos, .volverP, .verificar-codigo ,.verificar-pass{
+
+    border: 0;
+    width: 150px;
+    height: 30px;
+    margin-top: 18px;
+    font-size: 18px;
+    color: white;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    cursor: pointer;
+
+}
+
+
+
+
+.valid-user {
+
+    display: flex;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.code-user {
+    display: none;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pass-user {
+    display: none;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.send-request {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.listaDescripcion{
+    width: 99%;
+    height: var(--tamanolista);
+    background-color: #01061d;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+
+}
+
+.cuadricula2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.solicitudes-enlistadas{
+    width: 99%;
+    background-color: white;
+    opacity: 0.7;
+    align-items: center;
+    text-align: center;
+
+}
+
+.lista-soli{
+    
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+}
+
+
+.btn-aceptar, .btn-rechazar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 70%;
+    background-color: rgba(10, 10, 73, 0.452);
+    cursor: pointer;
+    margin: 0 auto;
+ }
+
+ .listas2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.listas3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+}

@@ -1,0 +1,23 @@
+
+
+.cartel-alerta{
+    display: none;
+    background-color: white;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 35%;
+    top: 40%;
+    width: 500px;
+    height: 200px;
+    z-index: 999;
+    border: 1px solid black;
+
+
+}
+
+.msj-alerta{
+    text-align: center;
+    margin-top: 4rem;
+    padding: 0.5rem;
+}

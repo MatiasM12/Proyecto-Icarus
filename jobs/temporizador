@@ -1,0 +1,13 @@
+var cron = require('node-cron');
+
+function tempPlanesDeVuelo(){
+    cron.schedule('0 0 0 * * *', () => {
+        console.log('cronPlanesDeVuelo iniciado');
+        //aca va el metodo que inciaria los planes de vuelo correspondientes
+            // iniciarPlanesDeVuelo();
+    })
+}
+
+module.exports = {
+    tempPlanesDeVuelo
+}

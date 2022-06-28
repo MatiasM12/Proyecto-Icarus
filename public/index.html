@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styleCont.css">
+    <link rel="stylesheet" href="./css/styleIcons.css">
+    <link rel="stylesheet" href="./css/styleContrasenia.css">
+    <link rel="stylesheet" href="./css/iconoCarga.css">
+    <link rel="stylesheet" href="./css/historial.css">
+    <link rel="stylesheet" href="./css/alerta.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./front js/index.js"></script>
+    <script type="module" src="./front js/mapa.js"></script>
+    <script src="https://kit.fontawesome.com/9110e95846.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+    <title>Planificación</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+    <!-------------------------------------------ACCIONES---------------------------------------------------------------->
+
+
+    <div class="logout-s">
+        <i class="fa-solid fa-arrow-right-from-bracket logout"></i>
+
+    </div>
+
+    <div class="SFCredencial">
+
+        <h1 class="titulo">Special Flights S.A <i class="fa-solid fa-earth-americas"></i></h1>
+
+    </div>
+
+    <main>
+        <section class="vuelos">
+            <div class="filtroVuelos">
+
+                <div class="filtritos">
+
+                    <input class="aeropuertoOr margen-filtro" type="search" placeholder="Aeropuerto Origen">
+                    <input class="aeropuertoDes margen-filtro" type="search" placeholder="Aeropuerto Destino">
+                    <input class="fechaS margen-filtro" type="date" placeholder="Fecha llegada">
+                    <input class="fechaL margen-filtro" type="date" placeholder="Fecha salida">
+                    <select class=" estado1 margen-filtro" name="estado " id="estado">
+                        <option selected="true" disabled="disabled">--Seleccionar</option>
+                        <option value="1">Programado</option>
+                        <option value="2">Confirmado</option>
+                        <option value="3">Pre-embarque</option>
+                        <option value="4">Despegado</option>
+                        <option value="5">En viaje</option>
+                        <option value="6">Aterrizado</option>
+                        <option value="7">Finalizado</option>
+                        <option value="8">Demorado</option>
+                        <option value="9">Re-programado</option>
+                        <option value="10">Cancelado</option>
+                    </select>
+
+                    <div class="limpiarSelect">
+                        <i class="fa-solid fa-xmark btn-select1"></i>
+
+                    </div>
+
+                    <select class="estado2 margen-filtro" name="estado " id="estado">
+                        <option selected="true" disabled="disabled">--Seleccionar</option>
+                        <option value="1">Programado</option>
+                        <option value="2">Confirmado</option>
+                        <option value="3">Pre-embarque</option>
+                        <option value="4">Despegado</option>
+                        <option value="5">En viaje</option>
+                        <option value="6">Aterrizado</option>
+                        <option value="7">Finalizado</option>
+                        <option value="8">Demorado</option>
+                        <option value="9">Re-programado</option>
+                        <option value="10">Cancelado</option>
+                    </select>
+
+                    <div class="limpiarSelect">
+                        <i class="fa-solid fa-xmark btn-select2"></i>
+
+                    </div>
+
+                    
+
+                    <div class="filtrar" tooltip="Filtrar">
+
+                        <i class="fa-solid fa-filter btn-filtro"></i>
+                    </div>
+
+
+                    <div class="traerTodo">
+                        <i class="fa-solid fa-arrows-rotate btn-traerTodo"></i>
+
+                    </div>
+                    
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="listaVuelos listas">
+
+                <h3 class="titulo-vuelo cuadricula">Vuelo</h3>
+                <h3 class="titulo-vuelo cuadricula">Aeropuerto Origen</h3>
+                <h3 class="titulo-vuelo cuadricula">Aeropuerto Destino</h3>
+                <h3 class="titulo-vuelo cuadricula">Fecha y Hora de Salida</h3>
+                <h3 class="titulo-vuelo cuadricula">Fecha y Hora de Llegada</h3>
+                <h3 class="titulo-vuelo cuadricula">Estado</h3>
+                <h3 class="titulo-vuelo cuadricula">Clima</h3>
+
+            </div>
+
+            <section class="vuelos-dinamicos">
+                <template id="template">
+                    <div class="vuelos-enlistados listas">
+                        <h3 class="lista-vuelo cuadricula plan-vuelo"></h3>
+                        <h3 class="lista-vuelo cuadricula aeropuerto-llegada"></h3>
+                        <h3 class="lista-vuelo cuadricula aeropuerto-destino"></h3>
+                        <h3 class="lista-vuelo cuadricula hora-salida"></h3>
+                        <h3 class="lista-vuelo cuadricula hora-llegada"></h3>
+                        <h3 class="lista-vuelo cuadricula estado-vuelo"></h3>
+                        <div class="lista-vuelo cuadricula semaforo semaforo-clima"></div>
+                        <div class="lista-vuelo cuadricula btn-masinfo"tooltip="Más Información">
+                            <i class="fa-solid fa-ellipsis masinfo"></i>
+                        </div>
+                        <div class="lista-vuelo cuadricula btn-modificar"tooltip="Modificar Vuelo">Modificar</div>
+                        <div class="lista-vuelo cuadricula btn-historial " tooltip="Historial de Estados">
+                            <i class="fa-solid fa-clipboard-list historial"></i>
+                        </div>
+                    </div>
+                </template>
+            </section>
+
+
+
+        </section>
+
+        <section class="informes vuelos">
+            <div class="col-grid col-1 informe-vuelo">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-list"></i>
+                    <h4>Vuelos</h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-2 informe-aeronave">
+                <div class="titulo-informe">
+
+                    <i class="fa-solid fa-jet-fighter"></i>
+                    <h4>Aeronaves</h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-3 informe-mantenimiento">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-wrench"></i>
+                    <h4>Mantenimiento</h4>
+
+                </div>
+
+
+            </div>
+            <div class="col-grid col-4 informe-emergencia">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <h4>Emergencias</h4>
+                </div>
+            </div>
+            <div class="col-grid col-5 informe-clima">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-cloud-moon"></i>
+                    <h4>
+                        Clima
+                    </h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-6 informe-tripulacion">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-person"></i>
+                    <h4>Tripulacion</h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-7 informe-usuario">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-user"></i>
+                    <h4>Usuario</h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-8 informe-aeropuerto">
+                <div class="titulo-informe">
+                    <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                    <h4>Aeropuerto</h4>
+
+                </div>
+            </div>
+            <div class="col-grid col-9 informe-parentesco">
+    
+            </div>
+        </section>
+
+
+        <section class="solicitudes vuelos">
+            <div class="listaDescripcion listas3">
+
+                <h3 class="descripcion-usuario cuadricula2">Usuario</h3>
+                <h3 class="descripcion-email cuadricula2">Correo Electronico</h3>
+                <h3 class="enviar-mail cuadricula2">Fecha</h3>
+
+            </div>
+            <div class="solitudes-cambios-contrasena">
+                <template id="template-historial-contrasena">
+                    
+                    <div class="solicitudes-enlistadas listas2">  
+                            <h3 class="lista-soli cuadricula3 user-soli"></h3>
+                            <h3 class="lista-soli cuadricula3 email-soli"></h3>
+                            <div class="fecha-cambio-contra"></div>
+                    </div>
+                </template>
+            </div>
+        
+        </section>
+
+    </main>
+    <nav class="funciones">
+        <div class="btn-funciones obt-rutas">
+            <label class="obt-rutas">Planes de Vuelo</label>
+        </div>
+        <div class="btn-funciones obt-informes">
+            <label>Informes</label>
+        </div>
+        <div class="btn-funciones obt-solicitudes">
+            <label> Solicitudes de Cambio de Contraseña </label>
+        </div>
+    </nav>
+
+
+        <!--------------------------------COMIENZO PLAN DE VUELO------------------------------------------------------------->
+
+        <div class="historial-vuelo">
+            <div class = "historial">
+                <div class = "header-historial">
+                    <h3 class = "vuelo-historial">
+                        Historial de Estados -  Vuelo SF****-************
+                    </h3>
+                    <div class="cerrar-historial">
+    
+                        <i class="fa-solid fa-x c-historial"></i>
+                    </div>
+                </div>
+                    <div class="listaHistorial listas5">
+        
+                        <h3 class="historial-estado cuadricula5">Estado</h3>
+                        <h3 class="historial-fyh cuadricula5">Fecha y Hora</h3>
+                        <h3 class="historial-aeronave cuadricula5">Aeronave</h3>
+                        <h3 class="historial-tripulacion cuadricula5">Cambios de tripulación</h3>
+                        <h3 class="historial-usuario cuadricula5">Usuario que realizo el cambio</h3>
+        
+                    </div>
+                    <div class="seccion-historial-automatico">
+                        <template id="historial-generacion-automatica">
+                                <div class="estados-enlistadas listas6">
+                                    <h3 class="lista-soli6 cuadricula6 estado-his"> PROGRAMADO</h3>
+                                    <h3 class="lista-soli6 cuadricula6 fyh-his"> 15/06/2022 14:42</h3>
+                                    <h3 class="lista-soli6 cuadricula6 aeronave-his"> Embraer 123</h3>
+                                    <h3 class="lista-soli6 cuadricula6 tripulacion-his"> Si</h3>
+                                    <h3 class="lista-soli6 cuadricula6 user-his"> User 1</h3>
+                                </div>
+
+                        </template>
+                    </div>
+
+            </div>
+            
+   
+        </div>
+
+
+    <!--------------------------------COMIENZO PLAN DE VUELO------------------------------------------------------------->
+
+    <div class="descripcion-vuelo">
+        <div class="columnas col1" id="map">
+
+        </div>
+        <div class="columnas col2">
+            <div class="header-desc">
+                <h3 class="des-col2">
+                    Vuelo PV-001
+                </h3>
+                <h5 class="est-act">
+                    Estado: En viaje
+                </h5>
+                <div class="cerrar">
+
+                    <i class="fa-solid fa-x"></i>
+
+                </div>
+            </div>
+
+
+            <div class="icono-estado">
+
+                <div class="col-estados programado" tooltip="Programado">
+                    <i class="fa-solid fa-list-check icono-programado"></i>
+                    <!--<div class="titulos">Programado</div>-->
+                </div>
+
+                <div class="col-estados confirmado" tooltip="Confirmado">
+                    <i class="fa-solid fa-calendar-check icono-confirmado "></i>
+                    <!-- <div class="titulos">Confirmado.</div> -->
+                </div>
+
+                <div class="col-estados embarcando" tooltip="Pre-Embarque">
+                    <i class="fa-solid fa-person-walking-luggage icono-embarque"></i>
+                    <!--<div class="titulos">Embarcando.</div> -->
+                </div>
+
+                <div class="col-estados despegado" tooltip="Despegado">
+                    <i class="fa-solid fa-plane-departure icono-despegado"></i>
+                    <!--<div class="titulos">Despegado.</div>-->
+                </div>
+
+                <div class="col-estados viaje" tooltip="En Vuelo">
+                    <i class="fa-solid fa-plane icono-viaje"></i>
+                    <!--<div class="titulos">En viaje.</div>-->
+                </div>
+
+                <div class="col-estados aterrizado" tooltip="Aterrizado">
+                    <i class="fa-solid fa-plane-arrival icono-aterrizado"></i>
+                    <!--<div class="titulos">Aterrizado.</div>-->
+                </div>
+
+                <div class="col-estados demorado" tooltip="Demorado">
+                    <i class="fa-solid fa-plane-circle-exclamation icono-demorado"></i>
+                    <!--<div class="titulos">Demorado.</div>-->
+                </div>
+
+                <div class="col-estados reprogramado" tooltip="Reprogramado">
+                    <i class="fa-solid fa-clock-rotate-left icono-reprogramado"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+                <div class="col-estados cancelado" tooltip="Cancelado">
+                    <i class="fa-solid fa-plane-slash icono-cancelado"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+                <div class="col-estados finalizado" tooltip="Finalizado">
+                    <i class="fa-solid fa-square-check icono-finalizado"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+
+
+            </div>
+
+            <div class="band">
+                <h2 class="title-band">INFORMACION DEL VUELO</h2>
+            </div>
+
+            <div class="ruta">
+                <div class="r-salida">
+                    <h4 class="izq">Aeropuerto salida:</h4>
+                </div>
+                <div class="r-llegada">
+                    <h4 class="der">Aeropuerto llegada:</h4>
+                </div>
+
+            </div>
+
+            <div class="fecha-hora">
+                <div class="fyh-salida">
+                    <h3 class="fyh-izq title"> DESPEGUE </h3>
+                    <h4 class="fyh-izq fecha-salida">fecha:</h4>
+                    <h4 class="fyh-izq hora-salida">Hora:</h4>
+                    <h4 class="fyh-izq ruta-estimada">Ruta:</h4>
+
+                </div>
+                <div class="fyh-llegada">
+                    <h3 class=" fyh-der title"> ATERRIZAJE </h3>
+                    <h4 class="fyh-der fecha-llegada">Hora:</h4>
+                    <h4 class="fyh-der hora-llegada">fecha:</h4>
+                </div>
+            </div>
+
+
+            <div class="aeronave">
+                <div class=" datos-aer">
+                    <h3 class="fyh-izq modelo-plan">Modelo: --Indefinido</h3>
+                </div>
+                <div class="datos-pat">
+                    <h3 class="fyh-der patente-plan">Patente : --Indefinido</h3>
+                </div>
+            </div>
+
+            <div class="otra-div">
+                <div class="tipo-vuelo">
+                    <h4 class="izq-tipo-vuelo">Tipo de vuelo:</h4>
+                </div>
+                <div class="emergencias">
+                    <h4> Emergencias en vuelo:</h4>
+                    <div class="semaforo semaforo-emergencia"></div>
+
+                </div>
+            </div>
+            <div class="otro-div2">
+
+                <div class="tripulacion">
+                    <template id="trip-plan-template">
+                        <div class="tripulantes-plan">
+                            <h3 class="nombre-tripulante-plan"></h3>
+                            <h3 class="rango-tripulante-plan"></h3>
+                        </div>
+
+                    </template>
+                </div>
+                <div class="clima">
+                    <h4>CLIMA LLEGADA</h4>
+
+                    <div class="icon-temp">
+
+                        <div class="iconos-clima">
+
+                            <div class="clima-calido">
+                                <i class="fa-solid fa-temperature-high calor"></i>
+                            </div>
+
+                            <div class="clima-medio ">
+                                <i class="fa-solid fa-temperature-half medio"></i>
+                            </div>
+
+                            <div class="clima-frio">
+                                <i class="fa-solid fa-temperature-low frio"></i>
+                            </div>
+
+
+                        </div>
+
+                        <div class="temperatura">
+                            --Indefinido-
+                        </div>
+
+                    </div>
+
+
+                    <h4 class="caracteristicas">--Indefinido</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------FIN PLAN DE VUELO ---------------------------------------------------------------->
+
+    <!------------------------------------------- MODIFICAR VUELO-------------------------------------------------------->
+    <div class="modificar-vuelo">
+        <div class="columnas">
+            <div class="titulo-modificacion2">
+                <div class="titulo-modificacion">
+                    <h3 class="mover-der vuelo-mod">Special Flights</h3>
+                </div>
+            </div>
+            <div class="mover-der container ruta">
+                <h3 class="ruta-modificar">Ruta: </h3>
+            </div>
+            <div class="aeronave-modificacion">
+                <h3 class="mover-der modelo-modificacion  aer-titulo">Modelo Aeronave: --Indefinido-</h3>
+                <h3 class="matricula-modificacion  aer-matricula">Matricula: --Indefinido.</h3>
+            </div>
+            <div class="aeropuerto-modificacion">
+                <div class="mover-der container-aer-sal">
+                    <h3 class="titulo-aeropuerto">Despegue desde: --Indefinido</h3>
+                    <h3 class="fecha-salida-modificar"></h3>
+                    <h3 class="hora-salida-modificar"></h3>
+
+                </div>
+                <div class="container-aer-des">
+                    <h3 class="titulo-aeropuerto-aterrizaje">Aterrizaje en: --Indefinido</h3>
+                    <h3 class="fecha-destino-modificar"></h3>
+                    <h3 class="hora-destino-modificar"></h3>
+                </div>
+            </div>
+            <div class="mover-der tipo-vuelo tipo-vuelo-modificar">
+                <h3></h3>
+
+            </div>
+            <div class="cantidad-max-tripulantes">
+                <h3 class="col-max-trip">Cantidad pilotos :    <i class="cantidad-max cantidad-pil">1</i></h3>
+                <h3 class="col-max-trip">Cantidad Copilotos :  <i class="cantidad-max cantidad-copil">1</i></h3>
+                <h3 class="col-max-trip">Cantidad Auxiliares : <i class="cantidad-max cantidad-aux">0</i></h3>
+            </div>
+
+
+            <div class="mover-der tripulacion-seleccionada">
+                <template id="template-trip-select">
+                    <div class="contenedor-tripulante-seleccionado">
+                        <h3 class="nombre-tripulante-seleccionado"></h3>
+                        <h3 class="rango-tripulante-seleccionado"></h3>
+                    </div>
+
+                </template>
+
+            </div>
+        </div>
+        <div class="columnas colum1">
+            <div class="header-desc header-desc2">
+                <h3 class="des-col2 des-col3">
+                    Estado
+                </h3>
+
+                <div class="cerrar">
+
+                    <i class="fa-solid fa-x"></i>
+                </div>
+            </div>
+
+            <div class="icono-estado icono-estado2">
+
+                <div class="col-estados programado" tooltip="Cambiar a Programado">
+                    <i class="fa-solid fa-list-check icono-programado"></i>
+                    <!-- <div class="titulos">Programado</div> -->
+                </div>
+
+                <div class="col-estados confirmado" tooltip="Cambiar a Confirmado">
+                    <i class="fa-solid fa-calendar-check icono-confirmado c-modificar"></i>
+                    <!-- <div class="titulos">Confirmado.</div> -->
+                </div>
+
+                <div class="col-estados embarcando" tooltip="Cambiar a Pre-Embarque">
+                    <i class="fa-solid fa-person-walking-luggage icono-embarque pe-modificar"></i>
+                    <!--<div class="titulos">Embarcando.</div> -->
+                </div>
+
+                <div class="col-estados despegado" tooltip="Cambiar a Despegado">
+                    <i class="fa-solid fa-plane-departure icono-despegado d-modificar"></i>
+                    <!--<div class="titulos">Despegado.</div>-->
+                </div>
+
+                <div class="col-estados viaje" tooltip="Cambiar a En Vuelo">
+                    <i class="fa-solid fa-plane icono-viaje v-modificar"></i>
+                    <!--<div class="titulos">En viaje.</div>-->
+                </div>
+
+                <div class="col-estados aterrizado" tooltip="Cambiar a Aterrizado">
+                    <i class="fa-solid fa-plane-arrival icono-aterrizado a-modificar"></i>
+                    <!--<div class="titulos">Aterrizado.</div>-->
+                </div>
+
+                <div class="col-estados demorado" tooltip="Cambiar a Demorado">
+                    <i class="fa-solid fa-plane-circle-exclamation icono-demorado de-modificar"></i>
+                    <!--<div class="titulos">Demorado.</div>-->
+                </div>
+
+                <div class="col-estados reprogramado" tooltip="Cambiar a Re-Programado">
+                    <i class="fa-solid fa-clock-rotate-left icono-reprogramado re-modificar"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+
+                <div class="col-estados cancelado" tooltip="Cambiar a Cancelado">
+                    <i class="fa-solid fa-plane-slash icono-cancelado ca-modificar"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+                <div class="col-estados finalizado" tooltip="Cambiar a Finalizado">
+                    <i class="fa-solid fa-square-check icono-finalizado f-modificar"></i>
+                    <!--<div class="titulos">Cancelado.</div>-->
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-------------------------------- PROGRAMADO --------------------------------->
+            <div class="container-cambios">
+
+                <div class="nota-reprogramado"> 
+                    <label>Asigne manualmente aeronave y tripulacion.</label>
+                </div>
+
+
+
+                <div class="estado-programado asignar-aeronave">
+                    <div class="botonera-mod-tripulacion">
+                        <div class="btn-traerAN traer-tripulacion">Traer aeronave</div>
+                        <div class="btn-selecAN traer-tripulacion">Seleccionar</div>
+
+                    </div>
+                    <div class="lista-aeronave">
+                        <template id="lista-aeronaves">
+                            <div class="seleccionar-nave pintar-nave">
+                                <h3 class="nombre-aeronave pintar-nave"></h3>
+                                <h3 class="matricula-aeronave pintar-nave"></h3>
+                            </div>
+                        </template>
+                    </div>
+
+                </div>
+                <div class="estado-programado asignar-tripulacion">
+                    <div class="botonera-mod-tripulacion">
+                        <div class="btn-traerT traer-tripulacion">Traer tripulación</div>
+                        <div class="btn-selecT traer-tripulacion" tooltip="Seleccionar">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </div>
+                    </div>
+                    <div class="lista-tripulantes">
+                        <template id="template-trip">
+                            <div class="tripulante">
+                                <div class="nombre-cargo selec-trip">
+                                    <h3 class="nombre-tripulante selec-trip"></h3>
+                                    <h3 class="cargo-tripulante selec-trip"></h3>
+                                </div>
+                                <div class="ubicacion-disponibilidad selec-trip">
+                                    <h3 class="disponibilidad-tripulante selec-trip"></h3>
+                                    <h3 class="ubicacion-tripulante selec-trip"></h3>
+                                </div>
+
+                            </div>
+                        </template>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <!-------------------------------- CONFIRMADO --------------------------------->
+            <div class="container-confirmado">
+
+                <div class=info-requerida>
+
+
+                    <div class="estado-permisos">
+
+                        <div class="permisos-aeronave">
+                            <h3 class="permisoAN integracion-permisos-mant">Permisos aeronave: --Pendiente </h3>
+
+
+                        </div>
+                        <div class="btn-permisosAN"> Verificar permisos.
+
+                            <div id="contenedor">
+                                <div class="loader anLoader" id="loader">Loading...</div>
+                            </div>
+                        </div>
+
+                        <div class="permisos-tripulacion">
+                            <h3 class="permisoT">Permisos Tripulacion: --Pendiente </h3>
+                        </div>
+                        <div class="btn-permisosT"> Verificar permisos.
+
+                            <div id="contenedor">
+                                <div class="loader triLoader" id="loader">Loading...</div>
+                            </div>
+                        </div>
+                        <div class="pedir-insumos">
+                            <h3 class="pedir-insumo-titulo">Solicitud de insumos y controles.</h3>
+                        </div>
+                        <div class="btn-pedir-insumos">Enviar solicitud.
+
+                            <div id="contenedor">
+                                <div class="loader insumosLoader" id="loader">Loading...</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <!-------------------------------- PREEMBARQUE----------------------------------->
+
+            <div class="container-preembarque">
+
+                <div class="datos-embarque">
+
+
+                    <div class="traer-clima">
+
+
+                        <div class="datos-clima">
+
+                            <h4 class="temperature">
+
+                                Temperatura: --Pendiente
+
+                            </h4>
+                            <h4 class="temp-carac">
+
+                                Caracteristicas: --Pendiente
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <div class="boton-clima">
+
+                        Traer Clima
+
+                        <div id="contenedor">
+                            <div class="loader cliLoader" id="loader">Loading...</div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="estado-checkin">
+
+
+
+                        <div class="datos-checkin-integracion">
+                            <h4 class="estado-check">
+                                Check-In : --Pendiente
+                            </h4>
+                            <h4 class="pasajeros">
+                                Cantidad de Pasajeros: --Pendiente
+                            </h4>
+                            <h4 class="peso-checkin">
+                                Peso Equipaje CheckIn: --Pendiente
+                            </h4>
+                        </div>
+
+
+
+                    </div>
+                    <div class="boton-check">
+
+                        Verificar Check-In
+                        <div id="contenedor">
+                            <div class="loader checkLoader" id="loader">Loading...</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="insumos-aeronave">
+                        <template id="template-insumos">
+                            <div class="insumo-ind">
+                                <h4 class="nombre-insumo"></h4>
+                                <p class="descripcion-insumo"></p>
+                                <h4 class="cantidad-insumo"></h4>
+                            </div>
+
+                        </template>
+                    </div>
+                    <div class="btn-insumos">
+                        Traer Insumos Vuelo
+
+                        <div id="contenedor">
+                            <div class="loader inLoader" id="loader">Loading...</div>
+                        </div>
+                    </div>
+
+                    <h3 class="resultado-control-cabina"></h3>
+                    <div class="control-cabina">
+
+                        <template id="template-cabina">
+                            <div class="insumo-ind">
+                                <h4 class="nombre-control"></h4>
+                                <p class="descripcion-control"></p>
+
+                            </div>
+
+                        </template>
+                    </div>
+                    <div class="btn-control-cabina">
+                        Traer controles.
+
+                        <div id="contenedor">
+                            <div class="loader caLoader" id="loader">Loading...</div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <!----------------------------------MODAL DESPEGADO------------------------------------------------------->
+
+            <div class="container-despegado">
+
+                <div class="datos-despegue">
+
+                    <h4 class="nota-despegue"> El vuelo ha despegado. </h4>
+
+                </div>
+
+
+
+            </div>
+
+
+            <!----------------------------------MODAL EN VUELO------------------------------------------------------->
+
+            <div class="container-envuelo">
+
+                <div class="datos-volando">
+
+                    <h4 class="nota-volando"> El avión esta en vuelo. </h4>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <!----------------------------------MODAL ATERRIZADO------------------------------------------------------->
+
+            <div class="container-aterrizado">
+
+                <div class="datos-aterrizado">
+
+
+                    <div class="datos-aterrizaje">
+
+                        <label class="titulo-info"> Fecha y hora : </label>
+
+                        <div class=" reales fyh-real">
+
+
+                            <div class="fyh-salida-real">
+
+                                <label>
+
+                                    DESPEGUE :
+
+                                </label>
+
+                                <input class="fecha-salida-real" type="date" placeholder="Fecha de Despegue ">
+
+                                <input class="hora-salida" type="time" placeholder="Hora de Despegue">
+
+                            </div>
+
+                            <div class="fyh-llegada-real">
+
+                                <label>
+
+                                    ATERRIZAJE :
+
+                                </label>
+
+                                <input class="fecha-llegada" type="date" placeholder="Fecha de Aterrizaje">
+
+                                <input class="hora-llegada" type="time" placeholder="Hora de Aterrizaje">
+
+                            </div>
+
+
+
+
+
+                        </div>
+                        <label class="titulo-info"> Tiempo de duración del vuelo : </label>
+
+
+                        <input class="reales duracion-vuelo" type="time" placeholder="Duración del vuelo">
+
+
+                        <label class="titulo-info"> Insumos Consumidos : </label>
+
+
+                        <div class="reales insumos-c">
+
+
+                            <label class="insumosC-vuelo">
+                                Insumos : --Pendiente
+                            </label>
+
+                        </div>
+                        
+
+                        <label class="titulo-info"> Ruta : </label>
+
+                        <div class="reales ruta-real">
+
+
+                            <label class="ruta-vuelo">
+                                Ruta Real : --Pendiente
+                            </label>
+
+                        </div>
+
+
+
+                        <label class="titulo-info"> Datos Aeropuertos : </label>
+
+                        <div class="aeropuertos-reales">
+
+                            <div class="aeropuertoS-real">
+                                <input class="reales aeropuertoS-vuelo" type="text" placeholder="Aeropuerto Salida">
+                            </div>
+
+                            <div class="aeropuertoL-real">
+                                <input class="reales aeropuertoL-vuelo" type="text" placeholder="Aeropuerto Llegada">
+                            </div>
+
+                        </div>
+
+
+
+                        <label class="titulo-info"> Datos Aeronave : </label>
+
+                        <div class="reales aeronave-real">
+
+
+                            <label class="combustible-vuelo">
+
+                                Litros de combustible : --Pendiente
+
+                            </label>
+
+                            <label class="lubricante-vuelo">
+
+                                Litros de lubricante : --Pendiente
+
+                            </label>
+                            <label class=" kilometraje-vuelo">
+
+                                Kilometros recorridos : --Pendiente
+                            </label>
+
+
+
+                            <input class="reales pesoCarga-vuelo" type="text" placeholder="Peso de Carga en Destino">
+
+
+
+
+                        </div>
+
+                        <label class="titulo-info"> Emergencias : </label>
+
+
+
+                        <div class="emergencias-aterrizado">
+
+                            <div>
+                                <label class="emer"> Emergencias: --Pendiente </label>
+
+                            </div>
+
+                            <label class="aviso-des"> Carga Despachada.</label>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="estado-aterrizado btns-cambio-estado">
+
+                    <div class="verificar-emer botones-aterrizado">
+
+                        Verificar
+
+                        <div id="contenedor">
+                            <div class="loader atrLoader" id="loader">Loading...</div>
+                        </div>
+
+                    </div>
+
+                    <div class="cambiar-aterrizado btn-guardar-aterrizado guardar">Confirmar despacho
+
+                        <div id="contenedor">
+                            <div class="loader desLoader" id="loader">Loading...</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="container-finalizado">
+
+                <div class="datos-finalizado">
+
+                    <h4 class="nota-finalizado"> El vuelo ha finalizado. </h4>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!----------------------------------MODAL REPROGRAMADO------------------------------------------------------->
+
+            <div class="container-reprogramado">
+
+                <div class="nota-reprogramado"> 
+                    <label> El vuelo ha sido reprogramado.</label>
+                    <label>Pida una nueva ruta, luego asigne aeronave y tripulacion.</label>
+                </div>
+
+                <label class="hola">Cambio de ruta.</label>
+                <label class="hola">Seleccione la cantidad de destinos</label>
+                <input class="cant-rutas" type="number" placeholder="Cantidad de Aeropuertos a incluir.">
+                <div class="btn-cant-rutas">Cargar</div>
+                <div class="cambio-rutas">
+                    <template id="template-cambio-rutas">
+                        <input class="input-cod-iata" type="text" placeholder="Ingrese Codigo IATA">
+                    </template>
+                </div>
+                <input class="cant-rutas-excluir" type="number"placeholder="Cantidad de Aeropuertos a excluir.">
+                <div class="btn-cant-rutas-excluir">Cargar</div>
+                <div class="cambio-rutas-excluir">
+                    <template id="template-cambio-rutas-excluir">
+                        <input class="input-cod-iata-ex" type="text" placeholder="Ingrese Codigo IATA">
+                    </template>
+                </div>
+                <div class="btn-cambiar-ruta">Cambio de ruta</div>
+
+
+
+                <div class="estado-reprogramado asignar-aeronave">
+                    <div class="botonera-mod-tripulacion">
+                        <div class="traer-tripulacion btn-traerAN-repro">Traer aeronave</div>
+                        <div class="traer-tripulacion btn-selectAN-repro">Seleccionar</div>
+
+                    </div>
+                    <div class="lista-aeronave lista-aviones-repro">
+                        <template id="template-avion-repro">
+                            <div class="seleccionar-nave-repro pintar-nave-repro">
+                                <h3 class="nombre-aeronave-repro pintar-nave-repro"></h3>
+                                <h3 class="matricula-aeronave-repro pintar-nave-repro"></h3>
+                            </div>
+                        </template>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="estado-reprogramado asignar-tripulacion asignar-reprotripulacion">
+                    <div class="botonera-mod-tripulacion">
+                        <div class="btn-traerTR traer-tripulacion listadoTripulacionReprogramado">Traer tripulación</div>
+                        <div class="btn-selecTR traer-tripulacion SeleccionarTripulacionReprogramado"  tooltip="Seleccionar">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </div>
+                    </div>
+                    <div class="lista-tripulantes lista-tripulantes-reprogramado">
+                        <template id="template-trip-reprogramado">
+                            <div class="tripulante-repro">
+                                <div class="nombre-cargo-repro selec-trip-repro">
+                                    <h3 class="nombre-tripulante-repro selec-trip-repro"></h3>
+                                    <h3 class="cargo-tripulante-repro selec-trip-repro"></h3>
+                                </div>
+                                <div class="ubicacion-disponibilidad-repro selec-trip-repro">
+                                    <h3 class="disponibilidad-tripulante-repro selec-trip-repro"></h3>
+                                    <h3 class="ubicacion-tripulante-repro selec-trip-repro"></h3>
+                                </div>
+
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <!---------------------------------TERMINA REPROGRAMADO------------------------------------------------------>
+
+            <!----------------------------------MODAL DEMORADO------------------------------------------------------->
+
+            <div class="container-demorado">
+
+                <div class="datos-demorado">
+                    <div class="nota-demorado"> El vuelo se ha demorado.
+
+                        <select class="texto-demora" name="estado " id="estado">
+                            <option selected="true" disabled="disabled">--Seleccionar</option>
+                            <option value="Acumulacion de vuelos">Acumulacion de vuelos.</option>
+                            <option value="Verificaciones">Verificaciones.</option>
+                            <option value="Controles">Controles.</option>
+                            <option value="Transito">Transito.</option>
+                            <option value="Pasajeros">Pasajeros.</option>
+                            <option value="Meteorología">Meteorología</option>
+                        </select>
+                    </div>
+                    <div class="btn-actualizar-demorado">
+                        Ingresar Motivo
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!---------------------------------TERMINA DEMORADO------------------------------------------------------>
+
+            <!----------------------------------MODAL CANCELADO------------------------------------------------------->
+
+            <div class="container-cancelado">
+
+
+                <div class="datos-cancelado">
+                    <div class="nota-cancelado"> El vuelo se ha cancelado.
+
+                        <select class="texto-cancelado" name="estado " id="estado">
+                            <option selected="true" disabled="disabled">--Seleccionar</option>
+                            <option value="Meteorología">Meteorología.</option>
+                            <option value="Huelgas">Huelgas.</option>
+                            <option value="Avería">Avería.</option>
+                            <option value="Seguridad">Seguridad.</option>
+                            <option value="Vencimiento permisos">Vencimiento permisos.</option>
+                        </select>
+
+                    </div>
+
+                    <div class="btn-actualizar-cancelado">
+                        Ingresar Motivo
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+            <!---------------------------------TERMINA CANCELADO------------------------------------------------------>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <!--------------------------------- FINAL  MODIFICAR VUELO --------------------------------------------------------->
+
+    <!-----------------------------------CONTENEDOR LOGIN  --------------------------------------------------------->
+
+    <div class="credenciales">
+
+        <div class="SFCredencial">
+            <h1 class="titulo">Special Flights S.A <i class="fa-solid fa-earth-americas"></i></h1>
+        </div>
+        <div class="form-identificacion">
+
+            <div class="init-session">
+
+                <h3 class="iniciarS"> Login </h3>
+                <div class="contenedorUC">
+                    <div class="icono">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <input class="campos campo-usuarios" type="text" placeholder="usuario">
+                </div>
+
+                <div class="contenedorUC">
+                    <div class="icono">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <input class="campos campo-contra" type="password" placeholder="password">
+                </div>
+
+                <button class="autentificador">Iniciar</button>
+
+
+                <div class="recuperar-contrasenia">
+
+                    <div class="o">
+                        <hr>
+                        </hr>
+                        <i class="fa-light fa-o"></i>
+                        <hr>
+                        </hr>
+                    </div>
+
+
+                    <h4 class="recuperar">
+                        ¿Olvidaste tu contraseña?
+                    </h4>
+                </div>
+
+            </div>
+
+
+
+            <!-- recuperar contraseña-->
+
+            <div class="reset-pass">
+                <div class="form-change">
+
+                    <h3 class="pass-change"> Cambiar Contraseña </h3>
+
+
+                    <div class="valid-user">
+
+                        <h3 class="aviso a-user">Ingrese su nombre de usuario:</h3>
+                        <input class="campos campo-user" type="text" placeholder="usuario">
+
+
+
+                        <button class="verificar-datos">Siguiente</button>
+                    </div>
+
+
+                   <div class="code-user">
+
+                        <h3 class="c-aviso c-envio">
+                            Se le ha enviado a su email asociado un codigo.
+                        </h3>
+
+                        <h3 class="c-aviso a-user">Ingrese el codigo de x digitos:</h3>
+                        <input class="campos campo-user codigo-usuario" type="text" placeholder=" XXXXXX">
+
+
+                        <button class="verificar-codigo">Siguiente</button>
+                    </div>
+
+                
+
+                    <div class="pass-user">
+
+                        <h3 class="p-aviso p-user">Ingrese su nueva contraseña:</h3>
+                        <input class="campos pass-input" type="password" placeholder=" *******">
+                        <button class="verificar-pass">Siguiente</button>
+                    </div> 
+
+                
+
+
+
+
+                    <div class="send-request">
+
+                        <h3 class="aviso a-envio">
+                            Se confirmo tu cambio de contraseña.
+                            Revise su casilla de correo.
+                        </h3>
+
+                        <button class="volverP">Volver a Inicio.</button>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <div class="cartel-alerta">
+        <h3 class="msj-alerta"></h3>
+        <div class="btn-alerta">ACEPTAR</div>
+    </div>
+
+
+
+
+
+</body>
+
+
+
+
+</html>

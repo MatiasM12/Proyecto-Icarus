@@ -1,0 +1,490 @@
+.container-preembarque{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+
+}
+
+.datos-embarque{
+
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+
+}
+
+.traer-clima{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #768da6;
+    
+}
+
+.estado-checkin,.insumos-aeronave,.control-cabina{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #768da6;
+
+}
+.datos-checkin-integracion{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.pasajeros, .peso-checkin, .estado-check, .temperature , .temp-carac{
+    width: 75%;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+}
+
+
+.btn-control-cabina,.boton-pasajeros , .btn-insumos,.boton-clima ,.boton-check,.btn-control-cabina{
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, #01061d 0%, rgb(21 33 56) 100%);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 1.3rem;
+    align-items: center;
+    height: 2rem;
+    justify-content: space-between;
+}
+
+
+.btn-actualizar-demorado ,.btn-actualizar-cancelado{
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, #01061d 0%, rgb(21 33 56) 100%);
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    
+}
+
+.resultado-control-cabina{
+    background-color: rgb(37 198 247 / 42%);
+    margin: 0;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.cambiar-preembarque{
+
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+
+}
+
+.datos-despegue{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 98%;
+    height: 40%;
+    background-image: linear-gradient(to bottom, #01061d 0%, rgb(42 101 163) 100%);
+    opacity: 85%;
+
+}
+
+.nota-despegue{
+
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: auto;
+    color: white;
+    font-family: monospace;
+
+}
+
+.container-despegado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+
+
+}
+
+
+.container-envuelo{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+}
+
+.datos-volando{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 98%;
+    height: 40%;
+    background-image: linear-gradient(to bottom, #01061d 0%, rgb(42 101 163) 100%);
+    opacity: 85%;
+
+}
+
+.nota-volando{
+
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: auto;
+    color: white;
+    font-family: monospace;
+
+}
+
+
+.container-aterrizado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 73%;
+    flex-direction: column;
+
+}
+
+.datos-aterrizado{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 96%;
+
+    background-color: #c7cdd3;
+
+}
+
+
+.fyh-real{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.fyh-salida-real, .fyh-llegada-real{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titulo-info{
+    font-size: 1.2rem;
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+    background-color: #394d62;
+    margin-top: 0.5rem;
+    color: white;
+}
+
+
+.aeronave-real{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.aeropuertos-reales{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ruta-real{
+    margin-left: 1rem;
+}
+
+.pesoCarga-vuelo{
+    width: 50%;
+}
+
+.combustible-vuelo, .lubricante-vuelo, .pesoCarga-vuelo, .kilometraje-vuelo{
+
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+.botonera-atr{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.emergencias-aterrizado{
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+    
+
+}
+
+.emer{
+    margin-left: 1rem;
+}
+
+.nota-aterrizado{
+
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: auto;
+    color: white;
+    font-family: monospace;
+}
+
+.datos-aterrizaje{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.aviso-des{
+    margin-right: 1.5rem;
+    display: none;
+    color: green;
+
+}
+
+
+.cambiar-aterrizado , .verificar-emer{
+
+    padding: 1rem 1rem;
+    background-image: linear-gradient(to right, rgb(23 34 56) 0%, rgb(12 13 68) 100%);
+    color: white;
+    cursor: pointer;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    
+
+}
+
+.container-demorado , .conteiner-cancelado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+    
+
+}
+
+
+.datos-demorado , .datos-cancelado{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 98%;
+    height: 40%;
+    background-color: #768da6;
+    opacity: 85%;
+
+}
+
+.nota-demorado,.nota-cancelado{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    font-size: 1.5rem;
+    margin: auto;
+
+}
+
+
+
+.container-reprogramado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+    overflow-y: scroll;
+    text-align: justify;
+
+}
+
+.nota-reprogramado{
+    background-color: #768da6;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.hola{
+    font-size: 1.3rem;
+    background-color: #697583;
+    margin-bottom: 1rem;
+
+}
+
+.cambiar-reprogramado{
+
+    padding: 0.5rem;
+    background-image: linear-gradient(to right, rgb(62, 104, 184) 0%, rgb(3, 6, 182)  100%);
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+
+}
+
+
+
+.texto-cancelado , .texto-demora {
+    position: relative;
+    float: left;
+    min-width: 300px;
+    width: 300px;
+    min-height: 60px;
+    font-family: 'Roboto';
+    color: #777;
+    font-weight: 300;
+    background-color: #fff;
+    box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    transition: all 375ms ease-in-out;
+
+  }
+
+
+
+/*Ventana programado*/
+
+.nombre-cargo,.nombre-cargo-repro{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ubicacion-disponibilidad,.ubicacion-disponibilidad-repro{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tripulante,.tripulante-repro{
+    border: 1px solid black;
+}
+
+.contenedor-tripulante-seleccionado{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    background-color: rgb(24 50 212 / 42%);
+
+}
+
+.tripulante-seleccionado{
+    background-color: aquamarine;
+}
+
+.seleccionar-nave,.seleccionar-nave-repro{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+
+.aeronave{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.fecha-hora{
+    justify-content: space-around;
+}
+
+.caja-nave{
+    text-align: center;
+}
+
+
+
+.container-finalizado{
+
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+    flex-direction: column;
+
+}
+
+
+.datos-finalizado{
+
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 98%;
+    height: 40%;
+    background-image: linear-gradient(to bottom, #01061d 0%, rgb(42 101 163) 100%);
+    opacity: 85%;
+
+}
+
+.nota-finalizado{
+
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: auto;
+    color: white;
+    font-family: monospace;
+
+}
+/*Tabla insumo*/
+
+
+.insumo-ind{
+    width: 100%;
+    border-bottom: 1px solid black ;
+}

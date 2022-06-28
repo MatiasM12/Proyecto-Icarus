@@ -1,0 +1,107 @@
+
+/* ICONOS LOGIN */
+
+.fa-o{
+    color: white;
+}
+
+.fa-circle-user{
+
+    font-size: 1.3rem;
+    color: white;
+}
+
+.fa-key{
+
+    font-size: 1.3rem;
+    color:  white;
+}
+
+.fa-earth-americas{
+    font-size: 3rem;
+}
+
+
+.fa-arrow-right-from-bracket{
+
+    font-size: 4.5rem;
+    color:white;
+    cursor: pointer;
+}
+
+.fa-arrows-rotate{
+    cursor: pointer;
+    color: white;
+    margin-left: 1rem;
+}
+
+
+.fa-xmark{
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    margin-left: -0.3rem;
+    margin-right: 0.5rem;
+}
+
+
+.fa-clipboard-list, .fa-ellipsis{
+
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+
+
+/* ICONOS DE VENTANA INFO VUELO*/
+
+.fa-x{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.fa-x:hover{
+    color: red;
+
+}
+
+
+
+/* ICONOS DE ESTADOS DE UN VUELO EN INFO VUELO Y MODIFICAR*/
+
+.fa-plane, .fa-person-walking-luggage, .fa-alarm-exclamation, .fa-clock-rotate-left , .fa-square-check,
+ .fa-list-check, .fa-calendar-check, .fa-plane-departure, .fa-plane-arrival, .fa-plane-slash , .fa-plane-circle-exclamation{
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+
+/* ICONOS TEMPERATURA  EN VENTANA INFO VUELO*/
+
+
+.fa-temperature-high{
+    color: rgb(255, 0, 0);
+    font-size: 3rem;
+
+}
+
+.fa-temperature-half{
+    color: rgb(255, 251, 0);
+    font-size: 3rem;
+}
+
+.fa-temperature-low{
+    color: rgb(0, 26, 255);
+    font-size: 3rem;
+
+}
+
+
+/* ICONOS INFORME*/
+
+.fa-wrench,.fa-jet-fighter,.fa-circle-exclamation,.fa-cloud-moon,.fa-person,
+.fa-user,.fa-tower-control,.fa-cart-flatbed-suitcase,.fa-list,.fa-people-line {
+    font-size: 4rem;
+}
